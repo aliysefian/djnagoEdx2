@@ -5,14 +5,12 @@ import {apiCallBegan} from "../api";
 const slice = createSlice({
     name: 'auth',
     initialState: {
-        token:{},
-        loading:false,
+        token: {},
+        loading: false,
     },
     reducers: {
         login: ((state, action) => {
-            state.push({
-                description: action.payload,
-            });
+            state.token = action.payload
         })
 
 
@@ -26,10 +24,11 @@ createSelector(
     bugs => bugs.filter(bug => !bug.resolved)
 )
 //actioncreatoy
-export const postLogin=()=>apiCallBegan({
-        url: '/posts',
-        onSuccess: login.type
-        // onError: apiCallFail.type
+export const postLogin = () => apiCallBegan({
+        url: '/api-token-auth/',
+        onSuccess: login.type,
+        data: {username: '1', password: '1'},
+        method: 'post'
     }
 )
 

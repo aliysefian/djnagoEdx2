@@ -15,9 +15,9 @@ export class PostList extends Component {
 
     render() {
         return (<ul>
-            {/*{this.posts.map(m => (*/}
-            {/*    <li key={m.id}>{m.title}</li>*/}
-            {/*))}*/}
+            {this.props.posts.map(m => (
+                <li key={m.id}>{m.name}</li>
+            ))}
             sss
         </ul>)
     }
